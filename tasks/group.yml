@@ -1,0 +1,12 @@
+---
+
+- name: Create IAM groups
+  local_action:
+    module: iam
+    iam_type: user
+    name: "{{ item.name }}"
+    managed_policy: "{{ item.policy | default(omit) }}"
+    users: "{{ item.users | default(omit) }}"
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ iam_groups }}"
+
