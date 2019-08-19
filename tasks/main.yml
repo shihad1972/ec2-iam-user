@@ -1,4 +1,5 @@
 ---
 # tasks file for ec2-iam-user
 
-import_tasks: users.yml
+- import_tasks: users.yml
+- import_tasks: group.yml
